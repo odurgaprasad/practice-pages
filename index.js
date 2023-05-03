@@ -127,11 +127,10 @@ window.addEventListener("load", () => {
     }
     
     function validateEmail(email) {
-      if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
-        return false;
-      }
-      return true;
+      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return pattern.test(email);
     }
+    
     
     
     function validateMobileNumber(mobileNumber) {
@@ -156,6 +155,7 @@ window.addEventListener("load", () => {
     const currentInstitution = document.getElementById('currentInstitution').value.trim();
     const overallScore = parseInt(document.getElementById('overallScore').value.trim());
     const currentBacklogs = parseInt(document.getElementById('currentBacklogs').value.trim());
+
     if ( hscInstitution === "" || hscBoard === "" || hscScore === "" || sscInstitution === "" || sscBoard === "" || sscScore === "" || currentlyPursuing === "" || currentInstitution === ""
      || overallScore === "" || currentBacklogs === ""){
       alert("Please fill the form completely before proceeding !!");
