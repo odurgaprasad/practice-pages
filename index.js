@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
     const firstName = document.getElementById("first_name").value.trim();
     const lastName = document.getElementById("last_name").value.trim();
     const dob = document.getElementById("date").value.trim();
-    const email = document.getElementById("Email").value.trim();
+    const email = document.getElementById("email").value.trim();
     const fatherFirstName = document.getElementById("father_first_name").value.trim();
     const fatherLastName = document.getElementById("father_last_name").value.trim();
     const motherFirstName = document.getElementById("mother_first_name").value.trim();
@@ -117,25 +117,13 @@ window.addEventListener("load", () => {
     const city = document.getElementById("City").value.trim();
     const country = document.getElementById("country").value.trim();
     const telephoneHome = document.getElementById("Telephone-Home").value.trim();
-    const mobile = document.getElementById("Mobile").value.trim();
+    const mobileNumber = document.getElementById("Mobile").value.trim();
 
     
-    if (firstName === "" || lastName === "" || dob === ""||email===""  || fatherFirstName === "" || fatherLastName === "" || motherFirstName === "" || motherLastName === "" || gender === ""
-    || nationality === "" || homeAddress === "" || city === "" || country === "" || telephoneHome === "" ||telephoneHome.length !== 10 || mobile.length !== 10 || mobile === "" ) {
+    if (firstName === "" || lastName === "" || dob === ""||email==="" || validateEmail(email) || validateMobileNumber(mobileNumber) || validateMobileNumber(telephoneHome) || fatherFirstName === "" || fatherLastName === "" || motherFirstName === "" || motherLastName === "" || gender === ""
+    || nationality === "" || homeAddress === "" || city === "" || country === "" || telephoneHome === "" || mobile === "" ) {
       alert("Please Fill The Form")
       return false;
-    }
-    
-    function validateEmail(email) {
-      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return pattern.test(email);
-    }
-    
-    
-    
-    function validateMobileNumber(mobileNumber) {
-      const pattern = /^[0-9]{10}$/; 
-      return pattern.test(mobileNumber);
     }
     
 
@@ -224,7 +212,17 @@ window.addEventListener("load", () => {
 
 })
 
+function validateEmail(email) {
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return !pattern.test(email);
+}
 
+
+
+function validateMobileNumber(mobileNumber) {
+  const pattern = /^[0-9]{10}$/; 
+  return !pattern.test(mobileNumber);
+}
 
 
 
